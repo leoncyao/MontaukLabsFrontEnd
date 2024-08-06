@@ -1,6 +1,6 @@
 // components/DistanceCalculator.tsx
 import React, { useState } from 'react';
-import { Box, Button } from '@mui/material';
+import { Box, Button, Hidden } from '@mui/material';
 import Autocomplete from './AirportAutocomplete';
 import { Airport } from '../types/Airport';
 import { calculateDistance } from '../utils/distanceUtils';
@@ -28,14 +28,10 @@ const DistanceCalculator: React.FC = () => {
   };
 
   return (
-    <Box>
-      <Box display="flex" alignItems="center" gap={2}>
-        <Box flex={1}>
-          <Autocomplete onSelect={handleSelectAirport1} />
-        </Box>
-        <Box flex={1}>
-          <Autocomplete onSelect={handleSelectAirport2} />
-        </Box>
+    <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" minHeight="100vh"
+    maxHeight="200px"
+    overflow="hidden">
+      <Box mb={2} textAlign="center" width="100%" maxWidth="800px" maxHeight="150px" height="150px" overflow="hidden">
         <Button
           onClick={calculate}
           variant="contained"
@@ -44,12 +40,20 @@ const DistanceCalculator: React.FC = () => {
         >
           Calculate Distance
         </Button>
+        {distance !== null && (
+          <Box mt={2}>
+            <strong>Distance: </strong>{distance.toFixed(2)} nautical miles
+          </Box>
+        )}
       </Box>
-      {distance !== null && (
-        <Box mt={2}>
-          <strong>Distance: </strong>{distance.toFixed(2)} nautical miles
+      <Box display="flex" gap={2} width="100%" maxWidth="800px">
+        <Box flex={1} minWidth="200px">
+          <Autocomplete onSelect={handleSelectAirport1} />
         </Box>
-      )}
+        <Box flex={1} minWidth="200px">
+          <Autocomplete onSelect={handleSelectAirport2} />
+        </Box>
+      </Box>
     </Box>
   );
 };

@@ -24,6 +24,11 @@
   color: white;
 }
 
+.App-title {
+  font-size: 1.5rem; /* Adjust as needed */
+  margin-bottom: 16px; /* Optional: Adjust spacing */
+}
+
 .App-link {
   color: #61dafb;
 }

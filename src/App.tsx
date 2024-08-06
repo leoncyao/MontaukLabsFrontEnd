@@ -7,7 +7,7 @@ const App: React.FC = () => {
   return (
     <Container>
       <CssBaseline />
-      <Typography variant="h2" align="center" gutterBottom>
+      <Typography className="App-title" variant="h3" align="center"  gutterBottom>
         Airport Distance Calculator
       </Typography>
       <DistanceCalculator />
