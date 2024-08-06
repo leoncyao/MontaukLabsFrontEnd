@@ -1,6 +1,6 @@
 // components/DistanceCalculator.tsx
 import React, { useState } from 'react';
-import { Box, Button, Hidden } from '@mui/material';
+import { Box, Button, Grid } from '@mui/material';
 import Autocomplete from './AirportAutocomplete';
 import { Airport } from '../types/Airport';
 import { calculateDistance } from '../utils/distanceUtils';
@@ -28,9 +28,7 @@ const DistanceCalculator: React.FC = () => {
   };
 
   return (
-    <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" minHeight="100vh"
-    maxHeight="200px"
-    overflow="hidden">
+    <Box display="flex" flexDirection="column" alignItems="center" justifyContent="center" minHeight="100vh" maxHeight="200px" overflow="hidden">
       <Box mb={2} textAlign="center" width="100%" maxWidth="800px" maxHeight="150px" height="150px" overflow="hidden">
         <Button
           onClick={calculate}
@@ -46,14 +44,14 @@ const DistanceCalculator: React.FC = () => {
           </Box>
         )}
       </Box>
-      <Box display="flex" gap={2} width="100%" maxWidth="800px">
-        <Box flex={1} minWidth="200px">
+      <Grid container spacing={2} width="100%" maxWidth="800px">
+        <Grid item xs={12} sm={6}>
           <Autocomplete onSelect={handleSelectAirport1} />
-        </Box>
-        <Box flex={1} minWidth="200px">
+        </Grid>
+        <Grid item xs={12} sm={6}>
           <Autocomplete onSelect={handleSelectAirport2} />
-        </Box>
-      </Box>
+        </Grid>
+      </Grid>
     </Box>
   );
 };
