@@ -46,7 +46,7 @@ const Autocomplete: React.FC<AutocompleteProps> = ({ onSelect }) => {
       >
         {airports.map((airport) => (
           <MenuItem key={airport.code} value={airport.code}>
-            {airport.name} - {airport.city}, {airport.country}
+            {airport.code} - {airport.name}
           </MenuItem>
         ))}
       </TextField>
